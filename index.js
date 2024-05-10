@@ -1,17 +1,11 @@
-function combinationSum3(k, n) {
-  const result = [];
-  backtrack([], 1, k, n);
-  return result;
-  function backtrack(combination, start, k, n) {
-    if (n === 0 && k === 0) {
-      result.push([...combination]);
-      return;
-    }
-    if (n < 0 || k === 0) return;
-    for (let i = start; i <= 9; i++) {
-      combination.push(i);
-      backtrack(combination, i + 1, k - 1, n - i);
-      combination.pop();
-    }
+function reverseList(head) {
+  let prev = null;
+  let curr = head;
+  while (curr) {
+    const next = curr.next;
+    curr.next = prev;
+    prev = curr;
+    curr = next;
   }
+  return prev;
 }
