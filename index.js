@@ -1,6 +1,7 @@
-const isPrime = (num) => {
-  for (let i = 2, sqrt = Math.sqrt(num); i <= sqrt; i++) {
-    if (num % i === 0) return false;
+function canJump(nums) {
+  let lastPos = nums.length - 1;
+  for (let i = nums.length - 2; i >= 0; i--) {
+    if (i + nums[i] >= lastPos) lastPos = i;
   }
-  return num > 1;
-};
+  return lastPos === 0;
+}
